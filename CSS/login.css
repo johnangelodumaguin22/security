@@ -1,0 +1,293 @@
+:root {
+  --brand-dark: #055316;
+  --brand: #14813a;
+  --brand-light: #3ddc84;
+  --accent: #ffb703;
+  --ink: #eef7f0;
+  --ink-muted: #b9c9bd;
+  --card-bg: rgba(10, 22, 14, 0.86);
+  --field-bg: rgba(255, 255, 255, 0.06);
+  --field-border: rgba(255, 255, 255, 0.18);
+  --field-border-focus: var(--brand-light);
+  --danger: #ff6b6b;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  color: var(--ink);
+  background-image: linear-gradient(rgba(2, 10, 4, 0.55), rgba(2, 10, 4, 0.55)), url(../image/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ---------- Card shell ---------- */
+.overlay {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.login-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(90deg, rgba(17, 108, 37, 0.35), rgba(5, 83, 22, 0.15));
+}
+
+.login-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  color: #06210d;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(61, 220, 132, 0.35);
+}
+
+.login-card__eyebrow {
+  margin: 0 0 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--brand-light);
+}
+
+.login-card__title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.login-card__body {
+  padding: 22px 26px 26px;
+}
+
+/* ---------- Form fields ---------- */
+.form-label {
+  color: var(--ink-muted);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.form-text {
+  color: rgba(238, 247, 240, 0.55) !important;
+  font-size: 0.75rem;
+}
+
+input.form-control {
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 12px;
+  height: 42px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+input.form-control::placeholder {
+  color: rgba(238, 247, 240, 0.4);
+}
+
+input.form-control:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--field-border-focus);
+  box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.2);
+  color: var(--ink);
+}
+
+input.form-control:disabled {
+  opacity: 0.55;
+}
+
+input.form-control.is-invalid {
+  border-color: var(--danger);
+}
+
+/* ---------- Show/Hide eye icon (overlaid inside the input, not a
+   separate box beside it) ---------- */
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper input.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 38px;
+}
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  opacity: 0.75;
+}
+.toggle-eye:hover {
+  opacity: 1;
+}
+
+/* ---------- Buttons ---------- */
+.btn-brand {
+  width: 100%;
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(20, 129, 58, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+}
+.btn-brand:hover,
+.btn-brand:focus {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(20, 129, 58, 0.5);
+  color: #fff;
+}
+.btn-brand:active {
+  transform: translateY(0);
+}
+.btn-brand:disabled {
+  opacity: 0.55;
+  filter: none;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+a.text-success {
+  color: var(--brand-light) !important;
+}
+a.text-success:hover {
+  color: #fff !important;
+}
+
+/* ---------- Status / lockout messaging ---------- */
+.attempts-box {
+  display: none;
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+#countdownText {
+  color: var(--accent) !important;
+}
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.6;
+}
+a.disabled-link {
+  pointer-events: none;
+  color: gray !important;
+  text-decoration: none;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--brand-dark);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Navbar ---------- */
+.site-nav {
+  background: rgba(6, 20, 10, 0.72) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  padding: 10px 0;
+}
+.site-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--ink) !important;
+}
+.site-nav__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  color: #06210d;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.site-nav .navbar-nav {
+  gap: 8px;
+}
+.site-nav .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-muted) !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px !important;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.site-nav .nav-link:hover {
+  color: var(--ink) !important;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+.site-nav .nav-link.active {
+  color: #06210d !important;
+  background: linear-gradient(90deg, var(--brand-light), var(--brand));
+  border-color: transparent;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(61, 220, 132, 0.35);
+}
+
+@media (max-width: 480px) {
+  .login-card__header {
+    padding: 16px 18px;
+  }
+  .login-card__body {
+    padding: 18px;
+  }
+}

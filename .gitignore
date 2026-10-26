@@ -1,0 +1,21 @@
+# Secrets / credentials — never commit real values. See the matching
+# *.example.php files for the structure each one needs.
+include/mail_config.php
+include/default_superadmin.php
+
+# Database dumps — contain real account data (names, emails, password
+# hashes, security-question answers).
+*.sql
+
+# User-uploaded content (profile pictures, etc.)
+uploads/*
+!uploads/.gitkeep
+
+# Local tool/editor config
+.claude/
+.vscode/
+.idea/
+
+# OS cruft
+Thumbs.db
+.DS_Store

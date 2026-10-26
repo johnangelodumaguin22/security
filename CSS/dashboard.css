@@ -1,0 +1,28 @@
+body {
+  background: url(../image/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  color: white;
+}
+.overlay { 
+  background-color: rgba(0,0,0,0.6); 
+  min-height:100vh; 
+  display:flex; 
+  flex-direction:column; 
+}
+.navbar { 
+  background-color:#2ecc71 !important; 
+}
+.card { 
+  background-color: rgba(255,255,255,0.95); 
+  border-radius: 15px; 
+  box-shadow:0 4px 15px rgba(0,0,0,0.3); 
+  color:#333; 
+}
+footer { 
+  background-color: #e67e22; 
+  color:white; 
+  text-align:center; 
+  padding:8px 0; 
+}
